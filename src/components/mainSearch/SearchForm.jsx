@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 
@@ -61,17 +62,16 @@ const FormSubmitBtn = styled.button`
 `;
 
 const SearchForm = () => {
+  const history = useHistory();
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const onSubmit = (data) => history.push(`/summoner/${data.searchId}`);
 
   return (
     <SearchFormWrap>
       <LogoImg src={logo} alt="logo" />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <FormInput type="text" placeholder="소환사명" name="summonerName" ref={register} />
+        <FormInput type="text" placeholder="소환사명" name="searchId" ref={register} />
         <FormSubmitBtn type="submit">.GG</FormSubmitBtn>
       </Form>
     </SearchFormWrap>
