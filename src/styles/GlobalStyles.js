@@ -9,6 +9,10 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
     font-family: 'Noto Sans KR', sans-serif;
   }
+
+  button, input {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
 `;
 
 export default GlobalStyles
