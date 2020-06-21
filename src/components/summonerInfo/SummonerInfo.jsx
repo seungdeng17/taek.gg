@@ -5,18 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSummonerInfo } from "@modules/summoner";
 import { showHeaderSearchForm } from "@modules/header";
 
-import SummonerProfile from "@components/summonerInfo/SummonerProfile";
+import SummonerProfile from "./profile/SummonerProfile";
+import Menu from "./menu/Menu";
 
 const SummonerInfoWrap = styled.div`
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.color.lowBackground};
-`;
-
-const SummonerInfoInner = styled.div`
-  width: 1000px;
+  margin: 0 auto;
 `;
 
 const SummonerInfo = () => {
@@ -31,7 +26,8 @@ const SummonerInfo = () => {
 
   return (
     <SummonerInfoWrap>
-      <SummonerInfoInner>{summonerInfoData && <SummonerProfile {...{ summonerInfoData }} />}</SummonerInfoInner>
+      {summonerInfoData && <SummonerProfile {...{ summonerInfoData }} />}
+      <Menu />
     </SummonerInfoWrap>
   );
 };

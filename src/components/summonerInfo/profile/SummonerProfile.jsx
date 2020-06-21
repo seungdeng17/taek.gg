@@ -4,11 +4,14 @@ import styled from "styled-components";
 import bglevelbox from "@assets/images/bg-levelbox.png";
 
 const SummonerProfileWrap = styled.div`
-  padding: 30px 0;
+  background-color: #f5f5f5;
 `;
 
 const SummonerProfileInner = styled.div`
   display: flex;
+  width: 1000px;
+  margin: 0 auto;
+  padding: 30px 0;
 `;
 
 const ProfileIcon = styled.div`
