@@ -56,6 +56,7 @@ const HeaderNavBottom = styled.ul`
   font-size: 16px;
   box-sizing: border-box;
   li {
+    margin-right: 30px;
     line-height: 50px;
     cursor: pointer;
     border-bottom: 2px solid ${({ theme }) => theme.color.brandColor};
@@ -86,6 +87,7 @@ const Header = () => {
         <HeaderNavBottomInner>
           <HeaderNavBottom>
             <li>#집에있자</li>
+            <li>챔피언 분석</li>
           </HeaderNavBottom>
           <div className="header-search-form">{bOpenHeaderSearchForm && <HeaderSearchForm />}</div>
         </HeaderNavBottomInner>

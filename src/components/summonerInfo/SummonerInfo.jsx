@@ -7,6 +7,7 @@ import { showHeaderSearchForm } from "@modules/header";
 
 import SummonerProfile from "./profile/SummonerProfile";
 import Menu from "./menu/Menu";
+import SummonerRank from "./tier/SummonerRank";
 
 const SummonerInfoWrap = styled.div`
   width: 100%;
@@ -26,8 +27,13 @@ const SummonerInfo = () => {
 
   return (
     <SummonerInfoWrap>
-      {summonerInfoData && <SummonerProfile {...{ summonerInfoData }} />}
-      <Menu />
+      {summonerInfoData && (
+        <>
+          <SummonerProfile {...{ summonerInfoData }} />
+          <Menu />
+          <SummonerRank {...{ summonerInfoData }} />
+        </>
+      )}
     </SummonerInfoWrap>
   );
 };

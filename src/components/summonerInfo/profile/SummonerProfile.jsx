@@ -52,7 +52,6 @@ const ProfileName = styled.span`
 `;
 
 const SummonerProfile = ({ summonerInfoData }) => {
-  console.log(summonerInfoData);
   const profileImgSrc = process.env.REACT_APP_SUMMONER_PROFILE_ICON.replace("{profileIconId}", summonerInfoData.profileIconId);
   const summonerLevel = summonerInfoData.summonerLevel;
   const summonerName = summonerInfoData.name;
