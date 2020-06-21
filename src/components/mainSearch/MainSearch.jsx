@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { showHeaderSearchForm } from "@modules/header";
 
-import SearchForm from "./SearchForm";
+import SearchForm from "./MainSearchForm";
 
 const MainSearchWrap = styled.div`
   width: 100%;
@@ -16,6 +18,12 @@ const MainSearchInner = styled.div`
 `;
 
 const MainSearch = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(showHeaderSearchForm(false));
+  }, [dispatch]);
+
   return (
     <MainSearchWrap>
       <MainSearchInner>

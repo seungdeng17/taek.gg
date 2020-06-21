@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { getSummonerInfo } from "@modules/summoner";
+import { showHeaderSearchForm } from "@modules/header";
 
 import SummonerProfile from "@components/summonerInfo/SummonerProfile";
 
@@ -25,6 +26,7 @@ const SummonerInfo = () => {
 
   useEffect(() => {
     dispatch(getSummonerInfo(summonerName));
+    dispatch(showHeaderSearchForm(true));
   }, [dispatch, summonerName]);
 
   return (
