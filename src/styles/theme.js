@@ -6,6 +6,7 @@ const theme = {
     },
     color: {
         brandColor: '#5383e8',
+        lowBackground: '#eaeaea',
         nomalFont: '#555e5e',
         lowFont: '#879292',
         victory: {
