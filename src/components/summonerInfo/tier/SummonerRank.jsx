@@ -27,7 +27,8 @@ const SummonerRankWrap = styled.div`
 const SummonerRank = ({ summonerInfoData }) => {
   const dispatch = useDispatch();
   const { summonerRankData } = useSelector(({ rank }) => rank);
-  const [soloRankData, teamRankData] = summonerRankData || [null, null];
+  const [soloRankData] = summonerRankData ? summonerRankData.filter((rankData) => rankData.queueType === "RANKED_SOLO_5x5") : [null];
+  const [teamRankData] = summonerRankData ? summonerRankData.filter((rankData) => rankData.queueType === "RANKED_FLEX_SR") : [null];
   const tierImages = { UNRANKED, CHALLENGER, GRANDMASTER, MASTER, DIAMOND, PLATINUM, GOLD, SILVER, BRONZE, IRON };
 
   useEffect(() => {
