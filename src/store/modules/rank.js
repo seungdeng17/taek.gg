@@ -1,28 +1,31 @@
 import { URL } from '@constants/url';
 
 const GET_DATA_SUCCESS = 'rank/GET_DATA_SUCCESS';
-// const GET_DATA_ERROR = 'rank/GET_DATA_ERROR';
 
 export const getSummonerRank = encryptedSummonerId => async dispatch => {
     const response = await fetch(URL.SUMMONER_RANK_INFO(encryptedSummonerId));
     const data = await response.json();
-    dispatch({ type: GET_DATA_SUCCESS, payload: data });
+    const [soloRankData] = data.filter((rankData) => rankData.queueType === "RANKED_SOLO_5x5");
+    const [teamRankData] = data.filter((rankData) => rankData.queueType === "RANKED_FLEX_SR");
+    dispatch({ type: GET_DATA_SUCCESS, payload: { soloRankData, teamRankData } });
 }
 
 const initialState = {
-    summonerRankData: null,
+    soloRankData: null,
+    teamRankData: null,
 };
 
-const summoner = (state = initialState, action) => {
+const rank = (state = initialState, action) => {
     switch (action.type) {
         case GET_DATA_SUCCESS:
             return {
                 ...state,
-                summonerRankData: action.payload,
+                soloRankData: action.payload.soloRankData,
+                teamRankData: action.payload.teamRankData,
             }
         default:
             return state;
     }
 };
 
-export default summoner;
+export default rank;
