@@ -17,7 +17,7 @@ const SummonerInfoWrap = styled.div`
 
 const SummonerInfo = () => {
   const dispatch = useDispatch();
-  const { summonerInfoData } = useSelector(({ summoner }) => summoner);
+  const { bValidSummoner, summonerInfoData } = useSelector(({ summoner }) => summoner);
   const { summonerName } = useParams();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const SummonerInfo = () => {
 
   return (
     <SummonerInfoWrap>
-      {summonerInfoData && (
+      {bValidSummoner && (
         <>
           <SummonerProfile {...{ summonerInfoData }} />
           <Menu />
