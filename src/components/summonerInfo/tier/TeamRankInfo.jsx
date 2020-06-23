@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { romanNumberConverter } from "@utils/util";
+
+import defaultTier from "@assets/images/default-tier.png";
 
 const TeamRankInfoWrap = styled.div`
   margin-top: 10px;
@@ -47,8 +50,8 @@ const RankTextWrap = styled.div`
   }
 `;
 
-const TeamRankInfo = ({ teamRankData, tierImages }) => {
-  const tierImg = teamRankData ? tierImages[teamRankData.tier] : tierImages.UNRANKED;
+const TeamRankInfo = ({ teamRankData }) => {
+  const tierImg = teamRankData ? process.env.REACT_APP_SUMMONER_TIER_IMAGE.replace("{tier}", teamRankData.tier).replace("{rank}", romanNumberConverter(teamRankData.rank)) : defaultTier;
   const tierRank = teamRankData ? (
     <div className="tier-rank">
       <div className="tier">

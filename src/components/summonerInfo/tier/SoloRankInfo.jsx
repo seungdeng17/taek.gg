@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { romanNumberConverter } from "@utils/util";
+
+import defaultTier from "@assets/images/default-tier.png";
 
 const SoloRankInfoWrap = styled.div`
   width: 300px;
@@ -46,8 +49,8 @@ const RankTextWrap = styled.div`
   }
 `;
 
-const SoloRankInfo = ({ soloRankData, tierImages }) => {
-  const tierImg = soloRankData ? tierImages[soloRankData.tier] : tierImages.UNRANKED;
+const SoloRankInfo = ({ soloRankData }) => {
+  const tierImg = soloRankData ? process.env.REACT_APP_SUMMONER_TIER_IMAGE.replace("{tier}", soloRankData.tier).replace("{rank}", romanNumberConverter(soloRankData.rank)) : defaultTier;
   const tierRank = soloRankData ? (
     <div className="tier-rank">
       <div className="tier">
