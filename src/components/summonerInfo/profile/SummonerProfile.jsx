@@ -1,7 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-import bglevelbox from "@assets/images/bg-levelbox.png";
+import bgLevelBox from "@assets/images/bg-levelbox.png";
 
 const SummonerProfileWrap = styled.div`
   background-color: #f5f5f5;
@@ -21,6 +22,17 @@ const ProfileIcon = styled.div`
   margin-right: 30px;
 `;
 
+const ProfileBorder = styled.div`
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  width: 120px;
+  height: 120px;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background: url(${(props) => `${process.env.REACT_APP_SUMMONER_PROFILE_BORDER.replace("{tier}", props.tier.toLowerCase())}`});
+`;
+
 const ProfileImg = styled.img`
   display: block;
   width: 100%;
@@ -37,7 +49,7 @@ const ProfileLevel = styled.span`
   height: 24px;
   padding-top: 3px;
   box-sizing: border-box;
-  background: url(${bglevelbox});
+  background: url(${bgLevelBox});
   background-size: 100%;
   line-height: 17px;
   font-size: 14px;
@@ -52,6 +64,7 @@ const ProfileName = styled.span`
 `;
 
 const SummonerProfile = ({ summonerInfoData }) => {
+  const { soloRankData } = useSelector(({ rank }) => rank);
   const profileImgSrc = process.env.REACT_APP_SUMMONER_PROFILE_ICON.replace("{profileIconId}", summonerInfoData.profileIconId);
   const summonerLevel = summonerInfoData.summonerLevel;
   const summonerName = summonerInfoData.name;
@@ -60,6 +73,7 @@ const SummonerProfile = ({ summonerInfoData }) => {
     <SummonerProfileWrap>
       <SummonerProfileInner>
         <ProfileIcon>
+          {soloRankData && <ProfileBorder tier={soloRankData.tier} />}
           <ProfileImg src={profileImgSrc} alt="summoner-profile-icon" />
           <ProfileLevel>{summonerLevel}</ProfileLevel>
         </ProfileIcon>
