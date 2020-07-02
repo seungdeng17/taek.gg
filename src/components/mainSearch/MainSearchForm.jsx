@@ -7,7 +7,7 @@ import logo from "@assets/images/logo.png";
 
 const SearchFormWrap = styled.div`
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 92px);
   display: flex;
   flex-direction: column;
   justify-content: center;
