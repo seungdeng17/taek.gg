@@ -40,7 +40,7 @@ const MatchItem = ({ matchInfo }) => {
   const [playerStat] = matchInfo.participants.filter((summoner) => summoner.participantId === playerInfo.participantId);
   const win = matchInfo.teams[playerStat.teamId / 100 - 1].win;
 
-  const containerClass = `${win.toLowerCase()}${matchInfo.gameDuration < 900 ? " regame" : ""}`;
+  const containerClass = `${win.toLowerCase()}${matchInfo.gameDuration < 900 && matchInfo.queueId >= 420 && matchInfo.queueId <= 440 ? " regame" : ""}`;
 
   return (
     <MatchItemWrap className={containerClass}>
