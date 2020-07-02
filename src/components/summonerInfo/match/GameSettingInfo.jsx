@@ -51,7 +51,6 @@ const ChampionName = styled.div`
 `;
 
 const GameSettingInfo = ({ playerStat }) => {
-  console.log(playerStat);
   const champion = getChampionName(playerStat.championId);
   const championNameKR = translateChampionName(champion);
   const championImgSrc = process.env.REACT_APP_CHAMPION_IMAGE.replace("{champion}", champion);
