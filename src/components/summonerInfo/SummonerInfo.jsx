@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { getSummonerInfo } from "@modules/summoner";
+import { getSummonerInfo, resetSummonerState } from "@modules/summoner";
+import { resetRankState } from "@modules/rank";
 import { showHeaderSearchForm } from "@modules/header";
 
 import SummonerProfile from "./profile/SummonerProfile";
@@ -21,6 +22,8 @@ const SummonerInfo = () => {
   const { summonerName } = useParams();
 
   useEffect(() => {
+    dispatch(resetSummonerState());
+    dispatch(resetRankState());
     dispatch(getSummonerInfo(summonerName));
     dispatch(showHeaderSearchForm(true));
   }, [dispatch, summonerName]);
