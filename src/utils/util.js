@@ -52,3 +52,19 @@ export const getResultColor = (result) => {
         default: return '#000';
     }
 }
+
+export const getKillstreak = (playerData) => {
+    const killsKey = ["pentaKills", "quadraKills", "tripleKills", "doubleKills"];
+    const matchedKillsKey = killsKey.reduce((acc, cur) => {
+        if (acc === "" && playerData.stats[cur]) acc = cur;
+        return acc;
+    }, "");
+
+    switch (matchedKillsKey) {
+        case 'pentaKills': return '펜타킬';
+        case 'quadraKills': return '쿼드라킬';
+        case 'tripleKills': return '트리플킬';
+        case 'doubleKills': return '더블킬';
+        default: return null;
+    }
+}

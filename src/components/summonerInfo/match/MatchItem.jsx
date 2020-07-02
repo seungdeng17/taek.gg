@@ -1,9 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 import GameStat from "./GameStat";
 import GameSettingInfo from "./GameSettingInfo";
+import KDAInfo from "./KDAInfo";
 
 const MatchItemWrap = styled.div`
   display: flex;
@@ -45,8 +46,9 @@ const MatchItem = ({ matchInfo }) => {
     <MatchItemWrap className={containerClass}>
       <GameStat {...{ matchInfo, win }} />
       <GameSettingInfo {...{ playerStat }} />
+      <KDAInfo {...{ playerStat }} />
     </MatchItemWrap>
   );
 };
 
-export default MatchItem;
+export default memo(MatchItem);
