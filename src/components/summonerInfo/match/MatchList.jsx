@@ -8,8 +8,8 @@ import MatchItem from "./MatchItem";
 const MatchListWrap = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.color.lowBackground};
   padding: 15px;
+  padding-right: 0;
 `;
 
 const MatchList = ({ summonerInfoData }) => {

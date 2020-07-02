@@ -2,7 +2,7 @@ import React from "react";
 
 const MatchItem = ({ matchInfo }) => {
   console.log(matchInfo);
-  return <div></div>;
+  return <div>{matchInfo.gameId}</div>;
 };
 
 export default MatchItem;

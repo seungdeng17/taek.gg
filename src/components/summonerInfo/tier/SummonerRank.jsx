@@ -9,8 +9,8 @@ import TeamRankInfo from "./TeamRankInfo";
 const SummonerRankWrap = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.color.lowBackground};
-  padding: 15px;
+  width: 300px;
+  padding: 15px 0;
 `;
 
 const SummonerRank = ({ summonerInfoData }) => {

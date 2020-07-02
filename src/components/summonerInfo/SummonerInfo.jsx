@@ -15,6 +15,12 @@ import MatchList from "./match/MatchList";
 const SummonerInfoWrap = styled.div`
   width: 100%;
   height: 100%;
+  background-color: ${({ theme }) => theme.color.lowBackground};
+`;
+
+const SummonerInfoContentsWrap = styled.div`
+  width: 1050px;
+  display: flex;
   margin: 0 auto;
 `;
 
@@ -37,8 +43,10 @@ const SummonerInfo = () => {
         <>
           <SummonerProfile {...{ summonerInfoData }} />
           <Menu />
-          <SummonerRank {...{ summonerInfoData }} />
-          <MatchList {...{ summonerInfoData }} />
+          <SummonerInfoContentsWrap>
+            <SummonerRank {...{ summonerInfoData }} />
+            <MatchList {...{ summonerInfoData }} />
+          </SummonerInfoContentsWrap>
         </>
       )}
     </SummonerInfoWrap>
