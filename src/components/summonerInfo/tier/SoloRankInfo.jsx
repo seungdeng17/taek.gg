@@ -11,6 +11,7 @@ const SoloRankInfoWrap = styled.div`
   color: #879292;
   border: 1px solid #c6cbcb;
   background-color: #f2f2f2;
+  border-radius: 2px;
   padding: 8px 0;
   display: flex;
   align-items: center;
