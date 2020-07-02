@@ -11,7 +11,7 @@ export const getSummonerRank = encryptedSummonerId => async dispatch => {
     const [soloRankData] = data.filter((rankData) => rankData.queueType === "RANKED_SOLO_5x5");
     const [teamRankData] = data.filter((rankData) => rankData.queueType === "RANKED_FLEX_SR");
     dispatch({ type: GET_DATA_SUCCESS, payload: { soloRankData, teamRankData } });
-}
+};
 
 const initialState = {
     soloRankData: null,

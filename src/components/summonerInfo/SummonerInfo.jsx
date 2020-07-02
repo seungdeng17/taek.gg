@@ -4,11 +4,13 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { getSummonerInfo, resetSummonerState } from "@modules/summoner";
 import { resetRankState } from "@modules/rank";
+import { resetMatchState } from "@modules/match";
 import { showHeaderSearchForm } from "@modules/header";
 
 import SummonerProfile from "./profile/SummonerProfile";
 import Menu from "./menu/Menu";
 import SummonerRank from "./tier/SummonerRank";
+import MatchList from "./match/MatchList";
 
 const SummonerInfoWrap = styled.div`
   width: 100%;
@@ -24,6 +26,7 @@ const SummonerInfo = () => {
   useEffect(() => {
     dispatch(resetSummonerState());
     dispatch(resetRankState());
+    dispatch(resetMatchState());
     dispatch(getSummonerInfo(summonerName));
     dispatch(showHeaderSearchForm(true));
   }, [dispatch, summonerName]);
@@ -35,6 +38,7 @@ const SummonerInfo = () => {
           <SummonerProfile {...{ summonerInfoData }} />
           <Menu />
           <SummonerRank {...{ summonerInfoData }} />
+          <MatchList {...{ summonerInfoData }} />
         </>
       )}
     </SummonerInfoWrap>

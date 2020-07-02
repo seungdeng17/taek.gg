@@ -16,7 +16,7 @@ export const getSummonerInfo = summonerName => async dispatch => {
     } catch (error) {
         dispatch({ type: GET_DATA_ERROR, payload: error });
     }
-}
+};
 
 const initialState = {
     bValidSummoner: false,
