@@ -9,7 +9,8 @@
       "@pages/*": ["./src/pages/*"],
       "@modules/*": ["./src/store/modules/*"],
       "@constants/*": ["./src/constants/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      "@data/*": ["./src/data/*"]
     }
   }
 }
