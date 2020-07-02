@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { showHeaderSearchForm } from "@modules/header";
+import { resetSummonerState } from "@modules/summoner";
+import { resetRankState } from "@modules/rank";
+import { resetMatchState } from "@modules/match";
 
 import SearchForm from "./MainSearchForm";
 
@@ -21,6 +24,9 @@ const MainSearch = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(resetSummonerState());
+    dispatch(resetRankState());
+    dispatch(resetMatchState());
     dispatch(showHeaderSearchForm(false));
   }, [dispatch]);
 
