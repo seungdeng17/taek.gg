@@ -24,3 +24,19 @@ export const getSpellName = (spellId) => {
         if (+value.key === spellId) return spellName;
     }
 };
+
+export const getQueueType = (queueId) => {
+    switch (queueId) {
+        case 420: return '솔랭';
+        case 430: return '일반';
+        case 440: return '자유 5:5 랭크';
+        case 450: return '무작위 총력전';
+        default: return '기타';
+    }
+}
+
+export const getDuration = (duration) => {
+    const minute = Math.floor(duration / 60);
+    const seconds = duration - (minute * 60);
+    return `${minute}분 ${seconds}초`
+}
