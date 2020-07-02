@@ -19,6 +19,10 @@ export const getChampionName = (championId) => {
     }
 };
 
+export const translateChampionName = (championName) => {
+    return championsData.data[championName].name;
+};
+
 export const getSpellName = (spellId) => {
     for (const [spellName, value] of Object.entries(spellsData.data)) {
         if (+value.key === spellId) return spellName;

@@ -37,10 +37,10 @@ const GameStat = ({ matchInfo, win }) => {
   return (
     <GameStatWrap {...{ gameResultColor }}>
       <div className="game-queue">{gameQueue}</div>
-      <div className="game-creation">{gameCreation}</div>
+      <div>{gameCreation}</div>
       <div className="bar" />
       <div className="game-result">{gameResult}</div>
-      <div className="game-duration">{gameDuration}</div>
+      <div>{gameDuration}</div>
     </GameStatWrap>
   );
 };

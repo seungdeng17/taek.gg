@@ -16,16 +16,16 @@ const MatchItemWrap = styled.div`
   border: 1px solid #cdd2d2;
   margin-bottom: 8px;
   box-sizing: border-box;
-  &.Win {
+  &.win {
     background-color: #a3cfec;
     border-color: #99b9cf;
   }
-  &.Fail {
+  &.fail {
     background-color: #e2b6b3;
     border-color: #cea7a7;
   }
-  &.Win.Regame,
-  &.Fail.Regame {
+  &.win.regame,
+  &.fail.regame {
     background-color: #b6b6b6;
     border-color: #a7a7a7;
   }
@@ -39,7 +39,7 @@ const MatchItem = ({ matchInfo }) => {
   const [playerStat] = matchInfo.participants.filter((summoner) => summoner.participantId === playerInfo.participantId);
   const win = matchInfo.teams[playerStat.teamId / 100 - 1].win;
 
-  const containerClass = `${win}${matchInfo.gameDuration < 900 ? " Regame" : ""}`;
+  const containerClass = `${win.toLowerCase()}${matchInfo.gameDuration < 900 ? " regame" : ""}`;
 
   return (
     <MatchItemWrap className={containerClass}>
