@@ -40,3 +40,11 @@ export const getDuration = (duration) => {
     const seconds = duration - (minute * 60);
     return `${minute}분 ${seconds}초`
 }
+
+export const getResultColor = (result) => {
+    switch (result) {
+        case '승리': return '#1a78ae';
+        case '패배': return '#c6443e';
+        default: return '#000';
+    }
+}

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 import GameStat from "./GameStat";
+import GameSettingInfo from "./GameSettingInfo";
 
 const MatchItemWrap = styled.div`
   display: flex;
@@ -31,8 +32,6 @@ const MatchItemWrap = styled.div`
 `;
 
 const MatchItem = ({ matchInfo }) => {
-  console.log(matchInfo);
-
   const { summonerInfoData } = useSelector(({ summoner }) => summoner);
   const summonerName = summonerInfoData.name;
 
@@ -45,6 +44,7 @@ const MatchItem = ({ matchInfo }) => {
   return (
     <MatchItemWrap className={containerClass}>
       <GameStat {...{ matchInfo, win }} />
+      <GameSettingInfo {...{ playerStat }} />
     </MatchItemWrap>
   );
 };

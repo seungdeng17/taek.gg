@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { getQueueType, getDuration } from "@utils/util";
+import { getQueueType, getDuration, getResultColor } from "@utils/util";
 import moment from "moment";
 import "moment/locale/ko";
 
@@ -20,6 +20,10 @@ const GameStatWrap = styled.div`
     height: 2px;
     background-color: #95a5a670;
   }
+  .game-result {
+    font-weight: 600;
+    color: ${(props) => props.gameResultColor};
+  }
 `;
 
 const GameStat = ({ matchInfo, win }) => {
@@ -28,8 +32,10 @@ const GameStat = ({ matchInfo, win }) => {
   const gameResult = matchInfo.gameDuration < 900 ? "다시하기" : win === "Win" ? "승리" : "패배";
   const gameDuration = getDuration(matchInfo.gameDuration);
 
+  const gameResultColor = getResultColor(gameResult);
+
   return (
-    <GameStatWrap>
+    <GameStatWrap {...{ gameResultColor }}>
       <div className="game-queue">{gameQueue}</div>
       <div className="game-creation">{gameCreation}</div>
       <div className="bar" />
