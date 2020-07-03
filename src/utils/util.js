@@ -75,3 +75,15 @@ export const getTeamTotalKills = (data, teamId) => {
         return acc + kills;
     }, 0);
 }
+
+export const getPlayersNames = (champData, teamData, teamId) => {
+    return champData.reduce((acc, cur, idx) => {
+        if (cur.teamId !== teamId) return acc;
+        const data = {
+            championId: cur.championId,
+            summonerName: teamData[idx].player.summonerName
+        };
+        acc.push(data);
+        return acc;
+    }, []);
+}

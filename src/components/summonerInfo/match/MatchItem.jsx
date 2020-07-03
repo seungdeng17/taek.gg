@@ -7,6 +7,7 @@ import GameSettingInfo from "./GameSettingInfo";
 import KDAInfo from "./KDAInfo";
 import StatInfo from "./StatInfo";
 import ItemsInfo from "./ItemsInfo";
+import FollowPlayersNames from "./FollowPlayersNames";
 
 const MatchItemWrap = styled.div`
   display: flex;
@@ -52,6 +53,7 @@ const MatchItem = ({ matchInfo }) => {
       <KDAInfo {...{ playerStat }} />
       <StatInfo {...{ matchInfo, playerStat }} />
       <ItemsInfo {...{ playerStat }} />
+      <FollowPlayersNames {...{ matchInfo }} />
     </MatchItemWrap>
   );
 };
