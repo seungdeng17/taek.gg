@@ -5,6 +5,7 @@ import styled from "styled-components";
 import GameStat from "./GameStat";
 import GameSettingInfo from "./GameSettingInfo";
 import KDAInfo from "./KDAInfo";
+import StatInfo from "./StatInfo";
 
 const MatchItemWrap = styled.div`
   display: flex;
@@ -47,6 +48,7 @@ const MatchItem = ({ matchInfo }) => {
       <GameStat {...{ matchInfo, win }} />
       <GameSettingInfo {...{ playerStat }} />
       <KDAInfo {...{ playerStat }} />
+      <StatInfo {...{ matchInfo, playerStat }} />
     </MatchItemWrap>
   );
 };

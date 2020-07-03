@@ -68,3 +68,10 @@ export const getKillstreak = (playerData) => {
         default: return null;
     }
 }
+
+export const getTeamTotalKills = (data, teamId) => {
+    return data.filter(info => info.teamId === teamId).reduce((acc, cur) => {
+        const kills = cur.stats.kills;
+        return acc + kills;
+    }, 0);
+}
