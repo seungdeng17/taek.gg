@@ -1,6 +1,6 @@
 import { URL } from '@constants/url';
 
-const MATCH_DATAS_INTERVAL = 2;
+const MATCH_DATAS_INTERVAL = 4;
 
 const RESET_STATE = 'match/RESET_STATE';
 const GET_DATA_START = 'match/GET_DATA_START';

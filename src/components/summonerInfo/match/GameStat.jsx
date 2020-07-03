@@ -31,7 +31,7 @@ const GameStat = ({ matchInfo, win }) => {
 
   const gameQueue = getQueueType(queueId);
   const gameCreationTimeago = moment(new Date(gameCreation)).fromNow();
-  const gameResult = gameDuration < 900 && queueId >= 420 && queueId <= 440 ? "다시하기" : win === "Win" ? "승리" : "패배";
+  const gameResult = gameDuration >= 180 && gameDuration <= 400 ? "다시하기" : win === "Win" ? "승리" : "패배";
   const gameDurationTime = getDuration(gameDuration);
   const gameResultColor = getResultColor(gameResult);
 
