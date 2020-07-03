@@ -25,8 +25,6 @@ const StatInfo = ({ matchInfo, playerStat }) => {
   const minutePerCS = +(totalCS / Math.floor(matchInfo.gameDuration / 60)).toFixed(1);
   const killParticipation = Math.ceil(((playerStat.stats.kills + playerStat.stats.assists) / getTeamTotalKills(matchInfo.participants, playerStat.teamId)) * 100);
 
-  console.log(matchInfo);
-  console.log(playerStat);
   return (
     <StatInfoWrap>
       <div>레벨{champLevel}</div>
