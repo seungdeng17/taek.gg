@@ -1,8 +1,11 @@
 import { URL } from '@constants/url';
 import { checkResponseData } from '@utils/util';
 
+const RESET_STATE = 'summoner/RESET_STATE'
 const GET_DATA_SUCCESS = 'summoner/GET_DATA_SUCCESS';
 const GET_DATA_ERROR = 'summoner/GET_DATA_ERROR';
+
+export const resetSummonerState = () => ({ type: RESET_STATE });
 
 export const getSummonerInfo = summonerName => async dispatch => {
     try {
@@ -13,7 +16,7 @@ export const getSummonerInfo = summonerName => async dispatch => {
     } catch (error) {
         dispatch({ type: GET_DATA_ERROR, payload: error });
     }
-}
+};
 
 const initialState = {
     bValidSummoner: false,
@@ -22,6 +25,10 @@ const initialState = {
 
 const summoner = (state = initialState, action) => {
     switch (action.type) {
+        case RESET_STATE:
+            return {
+                ...initialState,
+            }
         case GET_DATA_SUCCESS:
             return {
                 ...state,
