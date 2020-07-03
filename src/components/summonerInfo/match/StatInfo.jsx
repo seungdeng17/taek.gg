@@ -20,10 +20,13 @@ const StatInfoWrap = styled.div`
 `;
 
 const StatInfo = ({ matchInfo, playerStat }) => {
-  const champLevel = playerStat.stats.champLevel;
-  const totalCS = playerStat.stats.totalMinionsKilled + playerStat.stats.neutralMinionsKilled;
-  const minutePerCS = +(totalCS / Math.floor(matchInfo.gameDuration / 60)).toFixed(1);
-  const killParticipation = Math.ceil(((playerStat.stats.kills + playerStat.stats.assists) / getTeamTotalKills(matchInfo.participants, playerStat.teamId)) * 100);
+  const { gameDuration, participants } = matchInfo;
+  const { teamId } = playerStat;
+  const { champLevel, totalMinionsKilled, neutralMinionsKilled, kills, assists } = playerStat.stats;
+
+  const totalCS = totalMinionsKilled + neutralMinionsKilled;
+  const minutePerCS = +(totalCS / Math.floor(gameDuration / 60)).toFixed(1);
+  const killParticipation = Math.ceil(((kills + assists) / getTeamTotalKills(participants, teamId)) * 100);
 
   return (
     <StatInfoWrap>

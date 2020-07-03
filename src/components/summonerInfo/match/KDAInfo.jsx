@@ -45,9 +45,8 @@ const BadgeWrap = styled.div`
 `;
 
 const KDAInfo = ({ playerStat }) => {
-  const kills = playerStat.stats.kills;
-  const deaths = playerStat.stats.deaths;
-  const assists = playerStat.stats.assists;
+  const { kills, deaths, assists } = playerStat.stats;
+
   const grade = kills + assists > 0 && deaths === 0 ? "Perfect" : isNaN(((kills + assists) / deaths).toFixed(2)) ? "0.00" : ((kills + assists) / deaths).toFixed(2);
   const killstreak = getKillstreak(playerStat);
 

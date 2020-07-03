@@ -51,17 +51,20 @@ const ChampionName = styled.div`
 `;
 
 const GameSettingInfo = ({ playerStat }) => {
-  const champion = getChampionName(playerStat.championId);
+  const { championId, spell1Id, spell2Id } = playerStat;
+  const { perk0, perkSubStyle } = playerStat.stats;
+
+  const champion = getChampionName(championId);
   const championNameKR = translateChampionName(champion);
   const championImgSrc = process.env.REACT_APP_CHAMPION_IMAGE.replace("{champion}", champion);
 
-  const spellA = getSpellName(playerStat.spell1Id);
-  const spellB = getSpellName(playerStat.spell2Id);
+  const spellA = getSpellName(spell1Id);
+  const spellB = getSpellName(spell2Id);
   const spellAImgSrc = process.env.REACT_APP_SPELL_IMAGE.replace("{spell}", spellA);
   const spellBImgSrc = process.env.REACT_APP_SPELL_IMAGE.replace("{spell}", spellB);
 
-  const mainPerk = playerStat.stats.perk0;
-  const subPerk = playerStat.stats.perkSubStyle;
+  const mainPerk = perk0;
+  const subPerk = perkSubStyle;
   const mainPerkImgSrc = process.env.REACT_APP_SUMMONER_MAIN_PERK_IMAGE.replace("{perk}", mainPerk);
   const subPerkImgSrc = process.env.REACT_APP_SUMMONER_SUB_PERK_IMAGE.replace("{perk}", subPerk);
 

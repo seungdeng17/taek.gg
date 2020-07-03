@@ -27,19 +27,21 @@ const GameStatWrap = styled.div`
 `;
 
 const GameStat = ({ matchInfo, win }) => {
-  const gameQueue = getQueueType(matchInfo.queueId);
-  const gameCreation = moment(new Date(matchInfo.gameCreation)).fromNow();
-  const gameResult = matchInfo.gameDuration < 900 && matchInfo.queueId >= 420 && matchInfo.queueId <= 440 ? "다시하기" : win === "Win" ? "승리" : "패배";
-  const gameDuration = getDuration(matchInfo.gameDuration);
+  const { queueId, gameCreation, gameDuration } = matchInfo;
+
+  const gameQueue = getQueueType(queueId);
+  const gameCreationTimeago = moment(new Date(gameCreation)).fromNow();
+  const gameResult = gameDuration < 900 && queueId >= 420 && queueId <= 440 ? "다시하기" : win === "Win" ? "승리" : "패배";
+  const gameDurationTime = getDuration(gameDuration);
   const gameResultColor = getResultColor(gameResult);
 
   return (
     <GameStatWrap {...{ gameResultColor }}>
       <div className="game-queue">{gameQueue}</div>
-      <div>{gameCreation}</div>
+      <div>{gameCreationTimeago}</div>
       <div className="bar" />
       <div className="game-result">{gameResult}</div>
-      <div>{gameDuration}</div>
+      <div>{gameDurationTime}</div>
     </GameStatWrap>
   );
 };

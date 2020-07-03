@@ -45,6 +45,7 @@ const WardBox = styled.div`
 
 const ItemsInfo = ({ playerStat }) => {
   const { item0, item1, item2, item3, item4, item5, item6, visionWardsBoughtInGame } = playerStat.stats;
+
   const items = [item0, item1, item2, item6, item3, item4, item5].map((item, idx) => {
     const imgSrc = process.env.REACT_APP_ITEM_IMAGE.replace("{item}", item);
     if (!item) return <EmptyImgBox key={`${item}-${idx}`} />;

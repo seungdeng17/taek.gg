@@ -35,14 +35,15 @@ const MatchItemWrap = styled.div`
 `;
 
 const MatchItem = ({ matchInfo }) => {
+  const { participantIdentities, participants, teams, gameDuration, queueId } = matchInfo;
   const { summonerInfoData } = useSelector(({ summoner }) => summoner);
   const summonerName = summonerInfoData.name;
 
-  const [playerInfo] = matchInfo.participantIdentities.filter((summoner) => summoner.player.summonerName === summonerName);
-  const [playerStat] = matchInfo.participants.filter((summoner) => summoner.participantId === playerInfo.participantId);
-  const win = matchInfo.teams[playerStat.teamId / 100 - 1].win;
+  const [playerInfo] = participantIdentities.filter((summoner) => summoner.player.summonerName === summonerName);
+  const [playerStat] = participants.filter((summoner) => summoner.participantId === playerInfo.participantId);
+  const win = teams[playerStat.teamId / 100 - 1].win;
 
-  const containerClass = `${win.toLowerCase()}${matchInfo.gameDuration < 900 && matchInfo.queueId >= 420 && matchInfo.queueId <= 440 ? " regame" : ""}`;
+  const containerClass = `${win.toLowerCase()}${gameDuration < 900 && queueId >= 420 && queueId <= 440 ? " regame" : ""}`;
 
   return (
     <MatchItemWrap className={containerClass}>
