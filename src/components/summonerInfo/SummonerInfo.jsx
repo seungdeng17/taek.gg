@@ -13,6 +13,7 @@ import SummonerRank from "./tier/SummonerRank";
 import MatchList from "./match/MatchList";
 
 const SummonerInfoWrap = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.color.lowBackground};
@@ -22,6 +23,16 @@ const SummonerInfoContentsWrap = styled.div`
   width: 1050px;
   display: flex;
   margin: 0 auto;
+`;
+
+const FakeBackground = styled.div`
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 92px);
+  background-color: ${({ theme }) => theme.color.lowBackground};
 `;
 
 const SummonerInfo = () => {
@@ -41,6 +52,7 @@ const SummonerInfo = () => {
     <SummonerInfoWrap>
       {bValidSummoner && (
         <>
+          <FakeBackground />
           <SummonerProfile {...{ summonerInfoData }} />
           <Menu />
           <SummonerInfoContentsWrap>
