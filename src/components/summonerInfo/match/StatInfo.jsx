@@ -26,7 +26,7 @@ const StatInfo = ({ matchInfo, playerStat }) => {
 
   const totalCS = totalMinionsKilled + neutralMinionsKilled;
   const minutePerCS = +(totalCS / Math.floor(gameDuration / 60)).toFixed(1);
-  const killParticipation = Math.ceil(((kills + assists) / getTeamTotalKills(participants, teamId)) * 100);
+  const killParticipation = Math.ceil(((kills + assists) / getTeamTotalKills(participants, teamId)) * 100) || 0;
 
   return (
     <StatInfoWrap>
